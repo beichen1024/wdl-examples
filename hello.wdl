@@ -8,6 +8,9 @@ task WriteGreeting {
   command {
      echo "Hello World"
   }
+  runtime {
+    docker: "ubuntu:latest"
+  }
   output {
      # Write output to standard out
      File output_greeting = stdout()
