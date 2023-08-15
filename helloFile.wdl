@@ -15,10 +15,10 @@ task InputFile {
       Int mem_gb
     }
     command {
-        bash echo 'The file is ${file_input}!' ${mem_gb}
+        bash cat ${file_input}
     }
     output {
-        File result = stdout()
+        File result = gs://wdl-test-in/hellofile.out
     }
     runtime {
         docker: "ubuntu:latest"    
