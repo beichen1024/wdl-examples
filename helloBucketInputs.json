@@ -1,4 +1,3 @@
 {
-    "HelloFile.file_input": "gs://wdl-test-in/hello.txt",
-    "HelloFile.mem_gb": 5
+    "ReadFile.read_file.file": "gs://wdl-test-in/hello.txt"
   }
