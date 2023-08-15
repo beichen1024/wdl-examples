@@ -15,10 +15,10 @@ task InputFile {
       Int mem_gb
     }
     command {
-        bash cat ${file_input}
+        bash echo 'The file is ${file_input}!' > "fileout.txt"
     }
     output {
-        File result = stdout()
+        File result = "fileout.txt"
     }
     runtime {
         docker: "ubuntu:latest"    
