@@ -18,7 +18,7 @@ task InputFile {
         bash cat ${file_input}
     }
     output {
-        File result = gs://wdl-test-in/hellofile.out
+        File result = stdout()
     }
     runtime {
         docker: "ubuntu:latest"    
