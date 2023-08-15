@@ -1,29 +1,23 @@
-version 1.0
+task read_file {
+  File file
 
-workflow HelloFile {
-    input {
-        File file_input
-        Int mem_gb
-    }
+  command {
+    cat ${file}
+  }
 
-    call InputFile { input: file_input=file_input, mem_gb=mem_gb }
+  output {
+    String contents = read_string(stdout())
+  }
+
+  runtime {
+    docker: "ubuntu:latest"
+  }
 }
 
-task InputFile {
-    input {
-      File file_input
-      Int mem_gb
-    }
-    command {
-        bash echo 'The file is ${file_input}!'
-    }
-    output {
-        File result = stdout()
-    }
-    runtime {
-        docker: "ubuntu:latest"    
-        memory: mem_gb + "GB"
-        # keep going even ...
-        continueOnReturnCode: 126
-    }
+workflow ReadFile {
+  call read_file
+
+  output {
+    read_file.contents
+  }
 }
