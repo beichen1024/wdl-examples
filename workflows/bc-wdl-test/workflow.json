@@ -8,7 +8,7 @@
 	"workflowLanguage": "wdl",
 	"categories": ["Genomics"],
 	"inputs": {
-		"inputFile": {
+		"wdlJSON": {
 			"title": "Input File",
 			"type": "string",
 			"format": "file",
@@ -24,7 +24,7 @@
 			{
 				"id": "inputFileGroup",
 			  	"title": "Inputs",
-				"fields": ["inputFile"],
+				"fields": ["wdlJSON"],
 			  	"hidden": false
 			}
 		]
